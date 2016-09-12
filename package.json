@@ -1,0 +1,58 @@
+{
+    "name": "vscode-edifact",
+    "displayName": "EDIFACT",
+    "description": "Basic language support for EDIFACT files",
+    "icon": "img/icon.png",
+    "version": "0.0.1",
+    "main": "./out/src/main",
+    "publisher": "DAXaholic",
+    "galleryBanner": {
+        "color": "#5071B0",
+        "theme": "dark"
+    },
+    "author": {
+        "name": "DAXaholic",
+        "email": "me@daxaholic.com"
+    },
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:edifact"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "edifact",
+                "aliases": [
+                    "EDIFACT",
+                    "EDI"
+                ],
+                "extensions": [
+                    ".edi"
+                ],
+                "configuration": "./edifact.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "edifact",
+                "scopeName": "text.plain.edifact",
+                "path": "./syntaxes/edifact.tmLanguage"
+            }
+        ]
+    },
+    "devDependencies": {
+        "typescript": "^1.8.5",
+        "vscode": "^0.11.0"
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    }
+}
