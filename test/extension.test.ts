@@ -6,11 +6,11 @@ import * as myext from '../src/main';
 
 suite("Complex Command Tests", () => {
     const fileUnformatted = path.join(
-        process.cwd(), 
-        'test/sample_std_seg_delimiter_unformatted.edi');
+        path.resolve(__dirname, '..', '..', 'test'), 
+        'sample_std_seg_delimiter_unformatted.edi');
     const fileFormatted = path.join(
-        process.cwd(), 
-        'test/sample_std_seg_delimiter_formatted.edi');
+        path.resolve(__dirname, '..', '..', 'test'),
+        'sample_std_seg_delimiter_formatted.edi');
     let txtFormatted = '';
 
     suiteSetup(() => {
