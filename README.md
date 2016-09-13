@@ -7,6 +7,8 @@ Features include:
  * Syntax highlighting
  * Formatting
 
+![Formatting Feature](./img/feature_formatting.gif)
+
 ## Release Notes
 
 ### 0.0.1
