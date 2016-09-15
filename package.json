@@ -10,6 +10,10 @@
         "color": "#5071B0",
         "theme": "dark"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DAXaholic/vscode-edifact.git"
+    },    
     "author": {
         "name": "DAXaholic",
         "email": "me@daxaholic.com"
