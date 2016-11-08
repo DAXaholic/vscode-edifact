@@ -26,7 +26,8 @@
         "vscode": "^1.0.0"
     },
     "categories": [
-        "Languages"
+        "Languages",
+        "Formatters"
     ],
     "activationEvents": [
         "onLanguage:edifact"
