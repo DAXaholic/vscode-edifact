@@ -1,6 +1,7 @@
 # [Change Log]
 
-## [Unreleased]
+## [0.0.4] - 2017-04-22
+### Added
  * AppVeyor Integration
  * Implemented formatting for messages with non-standard segment terminator
 
