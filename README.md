@@ -13,6 +13,16 @@ Features include:
 
 ## Release Notes
 
+### 0.0.3
+
+Bugfixes
+
+ * Fixed regression in test suite due to [new format command](https://code.visualstudio.com/updates/v1_7#_new-commands)
+
+Miscellaneous
+
+ * Integrated Travis CI
+
 ### 0.0.2
 
 Bugfixes
