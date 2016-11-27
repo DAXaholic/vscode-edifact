@@ -24,7 +24,7 @@ suite("Complex Command Tests", () => {
             .then((textDocument) => {
                 return vscode.window.showTextDocument(textDocument);
             }).then((textEditor) => {
-                return vscode.commands.executeCommand('editor.action.format');
+                return vscode.commands.executeCommand('editor.action.formatDocument');
             }).then(() => {
                 const txtEditor = vscode.window.activeTextEditor.document.getText();
                 assert.equal(
