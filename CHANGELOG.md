@@ -1,5 +1,8 @@
 # [Change Log]
 
+## [Unreleased]
+ * AppVeyor Integration
+
 ## [0.0.3] - 2016-11-27
 ### Added
  * Travis CI Integration

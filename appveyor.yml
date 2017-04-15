@@ -1,0 +1,10 @@
+install:
+  - npm install -g npm --silent
+  - npm install -g gulp mocha --silent
+
+build_script:
+  - npm install
+  - npm run vscode:prepublish
+
+test_script:
+  - npm test --silent
