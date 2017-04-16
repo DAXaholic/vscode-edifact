@@ -14,21 +14,22 @@ suite("Complex Command Tests", () => {
     let txtFormatted = '';
 
     suiteSetup(() => {
-        txtFormatted = fs.readFileSync(fileFormatted).toString();
+        txtFormatted = fs.readFileSync(fileFormatted, ).toString();
     });
 
     test("Format unformatted EDIFACT file", (done) => {
         vscode
             .workspace
-            .openTextDocument(fileUnformatted)
+            .openTextDocument(fileUnformatted, )
             .then((textDocument) => {
                 return vscode.window.showTextDocument(textDocument);
             }).then((textEditor) => {
                 return vscode.commands.executeCommand('editor.action.formatDocument');
             }).then(() => {
                 const txtEditor = vscode.window.activeTextEditor.document.getText();
+                const txtEditorUnixEol = txtEditor.replace(/\r?\n/g, '\n');
                 assert.equal(
-                    txtEditor,
+                    txtEditorUnixEol,
                     txtFormatted,
                     'Editor text does not match preformatted EDIFACT file');
                 done();
