@@ -1,38 +1,23 @@
 import * as assert from 'assert';
 import * as fs from 'fs';
-import * as path from 'path';
-import * as vscode from 'vscode';
-import * as myext from '../src/main';
+import Helper from './helper';
 
 suite("Complex Command Tests", () => {
-    const fileUnformatted = path.join(
-        path.resolve(__dirname, '..', '..', 'test'), 
-        'sample_std_seg_delimiter_unformatted.edi');
-    const fileFormatted = path.join(
-        path.resolve(__dirname, '..', '..', 'test'),
-        'sample_std_seg_delimiter_formatted.edi');
-    let txtFormatted = '';
-
-    suiteSetup(() => {
-        txtFormatted = fs.readFileSync(fileFormatted, ).toString();
-    });
-
-    test("Format unformatted EDIFACT file", (done) => {
-        vscode
-            .workspace
-            .openTextDocument(fileUnformatted, )
-            .then((textDocument) => {
-                return vscode.window.showTextDocument(textDocument);
-            }).then((textEditor) => {
-                return vscode.commands.executeCommand('editor.action.formatDocument');
-            }).then(() => {
-                const txtEditor = vscode.window.activeTextEditor.document.getText();
-                const txtEditorUnixEol = txtEditor.replace(/\r?\n/g, '\n');
-                assert.equal(
-                    txtEditorUnixEol,
-                    txtFormatted,
-                    'Editor text does not match preformatted EDIFACT file');
-                done();
-            }, done);
+    suite("Format unformatted EDIFACT file with ", () => {
+        test("standard (') segment delimiter", () => {
+            const fileUnformattedPath = Helper.resolveTestFilePath(
+                'sample_std_seg_delimiter_unformatted.edi');
+            const fileFormattedPath = Helper.resolveTestFilePath(
+                'sample_std_seg_delimiter_formatted.edi');
+            const formattedText = fs.readFileSync(fileFormattedPath).toString();
+            return Helper
+                .openAndFormatFile(fileUnformattedPath)
+                .then(editorText => {
+                    assert.equal(
+                        editorText,
+                        formattedText,
+                        'Editor text does not match preformatted EDIFACT file');
+                });
+        });
     });
 });
