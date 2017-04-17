@@ -1,4 +1,5 @@
 import * as vsc from 'vscode';
+import EdifactUnaInfo from './edifactUnaInfo';
 
 export class EdifactFormattingEditProvider implements vsc.DocumentFormattingEditProvider {
     provideDocumentFormattingEdits(document: vsc.TextDocument, 
@@ -12,12 +13,15 @@ export class EdifactFormattingEditProvider implements vsc.DocumentFormattingEdit
             document.lineAt(document.lineCount - 1).text.length);
         const wholeDocRange = new vsc.Range(startPos, endPos);
 
-        // Append newlines after all non-escaped quotes 
+        // Append newlines after all non-escaped segment terminators
         const text = document.getText();
+        const unaInfo = EdifactUnaInfo.determineFromEdifactData(text);
+        const rc = unaInfo.releaseCharacter;
+        const st = unaInfo.segmentTerminator;
+        const searchRegExp = new RegExp(`([^${rc}])${st}(?=.)`, 'g');
         const textEdit = new vsc.TextEdit(
             wholeDocRange, 
-            text.replace(/([^?])'(?=.)/g, "$1'\n"));
-
+            text.replace(searchRegExp, `$1${st}\n`));
         return [textEdit]; 
     }
 }

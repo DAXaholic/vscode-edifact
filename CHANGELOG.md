@@ -2,6 +2,7 @@
 
 ## [Unreleased]
  * AppVeyor Integration
+ * Implemented formatting for messages with non-standard segment terminator
 
 ## [0.0.3] - 2016-11-27
 ### Added
