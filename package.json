@@ -15,8 +15,8 @@
         "url": "https://github.com/DAXaholic/vscode-edifact.git"
     },
     "bugs": {
-		"url": "https://github.com/DAXaholic/vscode-edifact/issues"
-	},
+        "url": "https://github.com/DAXaholic/vscode-edifact/issues"
+    },
     "author": {
         "name": "DAXaholic",
         "email": "me@daxaholic.com"

@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import * as fs from 'fs';
-import EdifactUnaInfo from '../src/edifactUnaInfo'
+import EdifactUnaInfo from '../src/edifactUnaInfo';
 import Helper from './helper';
 
 suite('Unit Tests', () => {
