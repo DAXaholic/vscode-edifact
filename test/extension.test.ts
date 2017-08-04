@@ -1,5 +1,4 @@
 import * as assert from 'assert';
-import * as fs from 'fs';
 import EdifactUnaInfo from '../src/edifactUnaInfo';
 import Helper from './helper';
 
@@ -11,7 +10,7 @@ suite('Unit Tests', () => {
 
         test('"UNA:+.? #" has segment terminator "#"', () => {
             const unaInfo = new EdifactUnaInfo('UNA:+.? #');
-            assert.equal(unaInfo.segmentTerminator, '#');
+            assert.strictEqual(unaInfo.segmentTerminator, '#');
         });
 
         test('"UN :+.? #" is invalid UNA data', () => {
@@ -23,9 +22,8 @@ suite('Unit Tests', () => {
         });
 
         test("Provide defaults (:+.? ') in absence of UNA segment", () => {
-            const filePath = Helper.resolveTestFilePath(
+            const content = Helper.readTestFileSync(
                 'sample_no_una_unformatted.edi');
-            const content = fs.readFileSync(filePath).toString();
             const fileUnaInfo = EdifactUnaInfo.determineFromEdifactData(content);
             assert.deepStrictEqual(fileUnaInfo, EdifactUnaInfo.default);
         });
@@ -35,15 +33,12 @@ suite('Unit Tests', () => {
 suite('Complex Command Tests', () => {
     suite('Format unformatted EDIFACT file with ', () => {
         test("standard (') segment delimiter", () => {
-            const fileUnformattedPath = Helper.resolveTestFilePath(
-                'sample_std_seg_delimiter_unformatted.edi');
-            const fileFormattedPath = Helper.resolveTestFilePath(
+            const formattedText = Helper.readTestFileSync(
                 'sample_std_seg_delimiter_formatted.edi');
-            const formattedText = fs.readFileSync(fileFormattedPath).toString();
             return Helper
-                .openAndFormatFile(fileUnformattedPath)
+                .openAndFormatTestFile('sample_std_seg_delimiter_unformatted.edi')
                 .then(editorText => {
-                    assert.equal(
+                    assert.strictEqual(
                         editorText,
                         formattedText,
                         'Editor text does not match preformatted EDIFACT file');
@@ -51,15 +46,12 @@ suite('Complex Command Tests', () => {
         });
 
         test('hash (#) segment delimiter', () => {
-            const fileUnformattedPath = Helper.resolveTestFilePath(
-                'sample_hash_seg_delimiter_unformatted.edi');
-            const fileFormattedPath = Helper.resolveTestFilePath(
+            const formattedText = Helper.readTestFileSync(
                 'sample_hash_seg_delimiter_formatted.edi');
-            const formattedText = fs.readFileSync(fileFormattedPath).toString();
             return Helper
-                .openAndFormatFile(fileUnformattedPath)
+                .openAndFormatTestFile('sample_hash_seg_delimiter_unformatted.edi')
                 .then(editorText => {
-                    assert.equal(
+                    assert.strictEqual(
                         editorText,
                         formattedText,
                         'Editor text does not match preformatted EDIFACT file');

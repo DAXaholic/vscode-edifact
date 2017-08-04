@@ -1,4 +1,5 @@
 import * as path from 'path';
+import * as fs from 'fs';
 import * as vscode from 'vscode';
 
 export default class Helper {
@@ -6,13 +7,19 @@ export default class Helper {
         return path.join(path.resolve(__dirname, '..', '..', 'test'), fileName);
     }
 
-    static openAndFormatFile(path: string) {
+    static readTestFileSync(fileName: string) {
+        const filePath = Helper.resolveTestFilePath(fileName);
+        return fs.readFileSync(filePath).toString();
+    }
+
+    static openAndFormatTestFile(fileName: string) {
+        const resolvedPath = Helper.resolveTestFilePath(fileName);
         return vscode
             .workspace
-            .openTextDocument(path)
-            .then((textDocument) => {
+            .openTextDocument(resolvedPath)
+            .then(textDocument => {
                 return vscode.window.showTextDocument(textDocument);
-            }).then((textEditor) => {
+            }).then(textEditor => {
                 return vscode.commands.executeCommand('editor.action.formatDocument');
             }).then(() => {
                 const txtEditor = vscode.window.activeTextEditor.document.getText();
