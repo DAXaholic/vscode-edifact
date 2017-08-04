@@ -1,5 +1,9 @@
 # [Change Log]
 
+## [Unreleased]
+### Added
+ * Show EDIFACT segments in symbol list
+
 ## [0.0.4] - 2017-04-22
 ### Added
  * AppVeyor Integration

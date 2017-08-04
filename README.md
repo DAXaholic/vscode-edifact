@@ -9,5 +9,8 @@ Features include:
 
  * Syntax highlighting
  * Formatting
+ * Symbol (segment) navigation
 
 ![Formatting Feature](./img/feature_formatting.gif)
+
+![Symbol Navigation Feature](./img/feature_symbol_navigation.gif)
