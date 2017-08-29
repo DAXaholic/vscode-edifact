@@ -43,6 +43,7 @@
                 "extensions": [
                     ".edi"
                 ],
+                "firstLine": "(UNA......($|UNB)|UNB\\+UNO[A-Z]:)",
                 "configuration": "./edifact.configuration.json"
             }
         ],

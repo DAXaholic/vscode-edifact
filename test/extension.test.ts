@@ -118,4 +118,26 @@ suite('Complex Command Tests', () => {
                 });
         });
     });
+
+    suite('Auto. detect EDIFACT language on file ', () => {
+        test("without UNA segment", () => {
+            return Helper
+                .openTestFile('sample_auto_detect_no_una')
+                .then(textEditor => {
+                    assert.strictEqual(
+                        textEditor.document.languageId,
+                        'edifact');
+                });
+        });
+
+        test("with UNA segment", () => {
+            return Helper
+                .openTestFile('sample_auto_detect_with_una')
+                .then(textEditor => {
+                    assert.strictEqual(
+                        textEditor.document.languageId,
+                        'edifact');
+                });
+        });
+    });
 });

@@ -13,18 +13,24 @@ export default class Helper {
     }
 
     static openAndFormatTestFile(fileName: string) {
+        return this
+            .openTestFile(fileName)
+            .then(textEditor => {
+                return vscode.commands.executeCommand('editor.action.formatDocument');
+            }).then(() => {
+                const txtEditor = vscode.window.activeTextEditor.document.getText();
+                const txtEditorUnixEol = txtEditor.replace(/\r?\n/g, '\n');
+                return txtEditorUnixEol;
+            });
+    }
+
+    static openTestFile(fileName: string) {
         const resolvedPath = Helper.resolveTestFilePath(fileName);
         return vscode
             .workspace
             .openTextDocument(resolvedPath)
             .then(textDocument => {
                 return vscode.window.showTextDocument(textDocument);
-            }).then(textEditor => {
-                return vscode.commands.executeCommand('editor.action.formatDocument');
-            }).then(() => {
-                const txtEditor = vscode.window.activeTextEditor.document.getText();
-                const txtEditorUnixEol = txtEditor.replace(/\r?\n/g, '\n');
-                return txtEditorUnixEol;
             });
     }
 }

@@ -1,5 +1,9 @@
 # [Change Log]
 
+## [Unreleased]
+### Added
+ * Automatically detect EDIFACT language in files with unknown extension
+
 ## [0.0.5] - 2017-08-04
 ### Added
  * Show EDIFACT segments in symbol list
