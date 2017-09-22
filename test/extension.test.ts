@@ -86,6 +86,14 @@ suite('Unit Tests', () => {
                     assert.deepStrictEqual(segments, expectedSegments);
                 });
             });
+
+            test("EDIFACT file with line break", () => {
+                const fileData = Helper.readTestFileSync(
+                    'sample_line_break.edi');
+                const segmentInfos = EdifactSegmentInfo.getSegmentsFromEdifactData(fileData);
+                const segments = segmentInfos.map(x => x.segment);
+                assert.deepStrictEqual(segments, expectedSegments);
+            });
         });
     });
 });
