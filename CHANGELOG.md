@@ -4,6 +4,9 @@
 ### Added
  * Automatically detect EDIFACT language in files with unknown extension
 
+### Fixed
+ * Fixed bug of showing nonexistent segments in symbol list
+
 ## [0.0.5] - 2017-08-04
 ### Added
  * Show EDIFACT segments in symbol list

@@ -37,8 +37,12 @@ export default class EdifactSegmentInfo {
             let line = lines[lineIdx];
             let match : RegExpExecArray;
             while ((match = searchRegExp.exec(line)) != null) {
-                const startIdx = match.index + match[1].length;
-                segmentStarts.push({lineIdx: lineIdx, startIdx: startIdx});
+                // Only consider start of line as new segment if previous line
+                // ended with segment terminator
+                if (lineIdx == 0 || lines[lineIdx-1].endsWith(st)) {
+                    const startIdx = match.index + match[1].length;
+                    segmentStarts.push({lineIdx: lineIdx, startIdx: startIdx});
+                }
             }
         }
         let segmentInfos: EdifactSegmentInfo[] = [];
