@@ -85,6 +85,22 @@ suite('Unit Tests', () => {
                     const segments = segmentInfos.map(x => x.segment);
                     assert.deepStrictEqual(segments, expectedSegments);
                 });
+
+                test("CRLF line ending", () => {
+                    const fileData = Helper.readTestFileSync(
+                        'sample_crlf_line_ending_formatted.edi');
+                    const segmentInfos = EdifactSegmentInfo.getSegmentsFromEdifactData(fileData);
+                    const segments = segmentInfos.map(x => x.segment);
+                    assert.deepStrictEqual(segments, expectedSegments);
+                });
+
+                test("LF line ending", () => {
+                    const fileData = Helper.readTestFileSync(
+                        'sample_lf_line_ending_formatted.edi');
+                    const segmentInfos = EdifactSegmentInfo.getSegmentsFromEdifactData(fileData);
+                    const segments = segmentInfos.map(x => x.segment);
+                    assert.deepStrictEqual(segments, expectedSegments);
+                });
             });
 
             test("EDIFACT file with line break", () => {

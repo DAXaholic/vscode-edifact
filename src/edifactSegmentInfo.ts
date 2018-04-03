@@ -31,7 +31,7 @@ export default class EdifactSegmentInfo {
         const rc = unaInfo.releaseCharacter;
         const st = unaInfo.segmentTerminator;
         const searchRegExp = new RegExp(`(^|[^${rc}]${st}).`, 'g');
-        const lines = edifactData.split('\n');
+        const lines = edifactData.replace(/\r?\n/g, '\n').split('\n');
         let segmentStarts = []
         for (let lineIdx = 0; lineIdx < lines.length; ++lineIdx) { 
             let line = lines[lineIdx];

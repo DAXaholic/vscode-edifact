@@ -1,5 +1,9 @@
 # [Change Log]
 
+## [Unreleased]
+### Fixed
+ * Fixed missing segments in symbol list for files with CRLF line ending
+
 ## [0.2.0] - 2017-12-08
 ### Added
  * Allow collapsing messages 
