@@ -3,7 +3,7 @@
     "displayName": "EDIFACT",
     "description": "Basic language support for EDIFACT files",
     "icon": "img/icon.png",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "main": "./out/src/main",
     "publisher": "DAXaholic",
     "galleryBanner": {

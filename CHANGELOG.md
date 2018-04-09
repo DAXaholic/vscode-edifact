@@ -1,6 +1,6 @@
 # [Change Log]
 
-## [Unreleased]
+## [0.3.0] - 2018-04-09
 ### Fixed
  * Fixed missing segments in symbol list for files with CRLF line ending
 
