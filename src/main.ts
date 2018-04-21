@@ -1,6 +1,7 @@
 import * as vsc from 'vscode';
 import { EdifactFormattingEditProvider } from './formattingProvider';
 import { EdifactSymbolProvider } from './symbolProvider';
+import { EdifactStatusBarPresenter } from './statusBarPresenter';
 
 export function activate(ctx: vsc.ExtensionContext) {
     ctx.subscriptions.push(
@@ -9,6 +10,7 @@ export function activate(ctx: vsc.ExtensionContext) {
             new EdifactFormattingEditProvider()),
         vsc.languages.registerDocumentSymbolProvider(
             ['edifact'],
-            new EdifactSymbolProvider())
+            new EdifactSymbolProvider()),
+        new EdifactStatusBarPresenter()
     );
 }
