@@ -1,5 +1,9 @@
 # [Change Log]
 
+## Unreleased
+### Added
+  * Show message type and current segment in the status bar
+
 ## [0.3.0] - 2018-04-09
 ### Fixed
  * Fixed missing segments in symbol list for files with CRLF line ending
