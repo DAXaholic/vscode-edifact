@@ -50,7 +50,7 @@ export default class EdifactSegmentInfo {
             const segmentStart = segmentStarts[i];
             const line = lines[segmentStart.lineIdx];
             const startIdx = segmentStart.startIdx;
-            let endIdx = line.length - 1;
+            let endIdx = line.length;
             if ((i < segmentStarts.length - 1) &&
                 (segmentStarts[i+1].lineIdx === segmentStart.lineIdx)) {
                 endIdx = segmentStarts[i+1].startIdx - 1;
