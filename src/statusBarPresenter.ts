@@ -23,10 +23,24 @@ export class EdifactStatusBarPresenter implements vsc.Disposable {
         this.m_SegmentBarItem.show();
     }
 
+    private findCurrentSegment() {
+        const editor = vsc.window.activeTextEditor;
+        const text = editor.document.getText();
+        const segments = EdifactSegmentInfo.getSegmentsFromEdifactData(text);
+        const curPos = editor.selection.active;
+        return segments.find(
+            s => s.startLineIndex <= curPos.line &&
+                 s.endLineIndex   >= curPos.line &&
+                 s.startCharIndex <= curPos.character &&
+                 s.endCharIndex   >=  curPos.character
+        );
+    }
+
     refresh() {
-        let editor = vsc.window.activeTextEditor;
+        const editor = vsc.window.activeTextEditor;
         if (editor && editor.document.languageId === 'edifact') {
-            // Add code to determine message type and segment
+            const curSegment = this.findCurrentSegment();
+            this.m_SegmentBarItem.text = curSegment && curSegment.segment || '-';
             this.showBarItems();
         }
         else {
