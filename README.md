@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/DAXaholic/vscode-edifact.svg)](https://travis-ci.org/DAXaholic/vscode-edifact)
 [![Build status](https://ci.appveyor.com/api/projects/status/6hga12y0avnv7wq6?svg=true)](https://ci.appveyor.com/project/DAXaholic/vscode-edifact)
+[![Build Status](https://dev.azure.com/daxaholic/vscode-edifact/_apis/build/status/vscode-edifact%20CI)](https://dev.azure.com/daxaholic/vscode-edifact/_build/latest?definitionId=11)
 
 # Functionality
 

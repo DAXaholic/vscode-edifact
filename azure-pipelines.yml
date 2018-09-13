@@ -1,0 +1,18 @@
+pool:
+  vmImage: 'vs2017-win2017'
+
+steps:
+- script: npm install -g npm --silent
+  displayName: 'Update npm'
+
+- script: npm install -g gulp mocha --silent
+  displayName: 'Install toolchain'
+
+- script: npm install
+  displayName: 'Install dependencies'
+
+- script: npm run vscode:prepublish
+  displayName: 'Build extension'
+
+- script: npm test --silent
+  displayName: 'Run tests'
