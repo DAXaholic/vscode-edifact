@@ -1,6 +1,6 @@
 # [Change Log]
 
-## [Unreleased]
+## [0.4.0] - 2018-09-19
 ### Added
  * Azure DevOps Integration
  * Segments comprise their terminators at the end of the line
