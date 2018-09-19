@@ -3,6 +3,7 @@
 ## [Unreleased]
 ### Added
  * Azure DevOps Integration
+ * Segments comprise their terminators at the end of the line
 
 ## [0.3.0] - 2018-04-09
 ### Fixed
