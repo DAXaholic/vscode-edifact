@@ -12,12 +12,34 @@ export default class Helper {
         return fs.readFileSync(filePath).toString();
     }
 
+    static isExtensionActivated() {
+        return vscode.extensions.getExtension('DAXaholic.vscode-edifact').isActive;
+    }
+
+    static waitForExtensionActivation(timeout: number = 500) {
+        return new Promise((resolve, reject) => {
+            const start = Date.now();
+            const scheduledCheck = () => {
+                if (this.isExtensionActivated()) {
+                    resolve();
+                }
+                else if ((Date.now() - start) > timeout) {
+                    reject('Timeout while waiting for extension activation');
+                }
+                else {
+                    setTimeout(scheduledCheck, 15)
+                }
+            };
+            scheduledCheck();
+        });
+    }
+
     static openAndFormatTestFile(fileName: string) {
         return this
             .openTestFile(fileName)
-            .then(textEditor => {
-                return vscode.commands.executeCommand('editor.action.formatDocument');
-            }).then(() => {
+            .then(() => this.waitForExtensionActivation())
+            .then(() => vscode.commands.executeCommand('editor.action.formatDocument'))
+            .then(() => {
                 const txtEditor = vscode.window.activeTextEditor.document.getText();
                 const txtEditorUnixEol = txtEditor.replace(/\r?\n/g, '\n');
                 return txtEditorUnixEol;
