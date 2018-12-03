@@ -1,14 +1,14 @@
-import * as vsc from 'vscode';
-import EdifactSegmentInfo from './edifactSegmentInfo';
+import * as vsc from "vscode";
+import EdifactSegmentInfo from "./edifactSegmentInfo";
 
 export class EdifactSymbolProvider implements vsc.DocumentSymbolProvider {
-    provideDocumentSymbols(document: vsc.TextDocument,
-                           token: vsc.CancellationToken) {
+    public provideDocumentSymbols(document: vsc.TextDocument,
+                                  token: vsc.CancellationToken) {
 
-        let text = document.getText();
-        let segmentInfos = EdifactSegmentInfo.getSegmentsFromEdifactData(text);
-        let symbolInfos: vsc.SymbolInformation[] = [];
-        for (let segmentInfo of segmentInfos) {
+        const text = document.getText();
+        const segmentInfos = EdifactSegmentInfo.getSegmentsFromEdifactData(text);
+        const symbolInfos: vsc.SymbolInformation[] = [];
+        for (const segmentInfo of segmentInfos) {
             const symbolRange = new vsc.Range(
                 segmentInfo.startLineIndex,
                 segmentInfo.startCharIndex,
@@ -18,7 +18,7 @@ export class EdifactSymbolProvider implements vsc.DocumentSymbolProvider {
                 segmentInfo.segment,
                 vsc.SymbolKind.Struct,
                 symbolRange);
-            symbolInfos.push(symbolInfo)
+            symbolInfos.push(symbolInfo);
         }
         return symbolInfos;
     }
