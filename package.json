@@ -65,6 +65,7 @@
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
+        "lint": "tslint -p ./",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
