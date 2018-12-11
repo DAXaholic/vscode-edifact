@@ -1,5 +1,12 @@
 # [Change Log]
 
+## [0.5.0] - 2018-12-11
+### Added
+ * TSLint Integration
+
+### Fixed
+ * Fixed hidden segment terminator when preceded by escaped release character
+
 ## [0.4.0] - 2018-09-19
 ### Added
  * Azure DevOps Integration
