@@ -113,6 +113,14 @@ suite("Unit Tests", () => {
                 const segments = segmentInfos.map((x) => x.segment);
                 assert.deepStrictEqual(segments, expectedSegments);
             });
+
+            test("EDIFACT file with escaped release character in front of segment delimiter", () => {
+                const fileData = Helper.readTestFileSync(
+                    "sample_esc_release_char_before_seg_delimiter.edi");
+                const segmentInfos = EdifactSegmentInfo.getSegmentsFromEdifactData(fileData);
+                const segments = segmentInfos.map((x) => x.segment);
+                assert.deepStrictEqual(segments, expectedSegments);
+            });
         });
     });
 });

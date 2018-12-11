@@ -6,7 +6,7 @@ export default class EdifactSegmentInfo {
         const unaInfo = EdifactUnaInfo.determineFromEdifactData(edifactData);
         const rc = unaInfo.releaseCharacter;
         const st = unaInfo.segmentTerminator;
-        const searchRegExp = new RegExp(`(^|[^${rc}]${st}).`, "g");
+        const searchRegExp = new RegExp(`(^|([^${rc}]|[^${rc}](\\${rc}\\${rc})+)${st}).`, "g");
         const lines = edifactData.replace(/\r?\n/g, "\n").split("\n");
         const segmentStarts = [];
         for (let lineIdx = 0; lineIdx < lines.length; ++lineIdx) {
