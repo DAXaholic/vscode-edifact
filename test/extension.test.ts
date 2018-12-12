@@ -116,7 +116,7 @@ suite("Unit Tests", () => {
 
             test("EDIFACT file with escaped release character in front of segment delimiter", () => {
                 const fileData = Helper.readTestFileSync(
-                    "sample_esc_release_char_before_seg_delimiter.edi");
+                    "sample_esc_release_char_before_seg_delimiter_unformatted.edi");
                 const segmentInfos = EdifactSegmentInfo.getSegmentsFromEdifactData(fileData);
                 const segments = segmentInfos.map((x) => x.segment);
                 assert.deepStrictEqual(segments, expectedSegments);
@@ -145,6 +145,20 @@ suite("Complex Command Tests", () => {
                 "sample_hash_seg_delimiter_formatted.edi");
             return Helper
                 .openAndFormatTestFile("sample_hash_seg_delimiter_unformatted.edi")
+                .then((editorText) => {
+                    assert.strictEqual(
+                        editorText,
+                        formattedText,
+                        "Editor text does not match preformatted EDIFACT file");
+                });
+        });
+
+        test("escaped release character in front of segment delimiter", () => {
+            const formattedText = Helper.readTestFileSync(
+                "sample_esc_release_char_before_seg_delimiter_formatted.edi");
+            return Helper
+                .openAndFormatTestFile(
+                    "sample_esc_release_char_before_seg_delimiter_unformatted.edi")
                 .then((editorText) => {
                     assert.strictEqual(
                         editorText,
