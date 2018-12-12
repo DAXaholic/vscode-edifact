@@ -1,5 +1,9 @@
 # [Change Log]
 
+## [0.5.1] - 2018-12-12
+### Fixed
+ * Fixed formatting bug when segment terminator is preceded by escaped release character (related to fix in version 0.5.0)
+
 ## [0.5.0] - 2018-12-11
 ### Added
  * TSLint Integration
