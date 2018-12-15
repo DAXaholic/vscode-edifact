@@ -34,7 +34,6 @@ export default class EdifactSegmentInfo {
             }
             const segmentText = line.substring(startIdx, endIdx);
             const segmentInfo = new EdifactSegmentInfo(
-                unaInfo,
                 segmentStart.lineIdx,
                 startIdx,
                 segmentStart.lineIdx,
@@ -44,6 +43,7 @@ export default class EdifactSegmentInfo {
         }
         return segmentInfos;
     }
+
     public readonly startLineIndex: number;
     public readonly startCharIndex: number;
     public readonly endLineIndex: number;
@@ -51,16 +51,12 @@ export default class EdifactSegmentInfo {
     public readonly rawData: string;
     public readonly segment: string;
 
-    private readonly unaInfo: EdifactUnaInfo;
-
     constructor(
-        unaInfo: EdifactUnaInfo,
         startLineIndex: number, startCharIndex: number,
         endLineIndex: number, endCharIndex: number,
         rawData: string,
         ) {
 
-        this.unaInfo = unaInfo;
         this.startLineIndex = startLineIndex;
         this.startCharIndex = startCharIndex;
         this.endLineIndex = endLineIndex;

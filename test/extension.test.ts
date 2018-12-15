@@ -35,7 +35,6 @@ suite("Unit Tests", () => {
 
         test(`"${dtmSegmentTestData}" has segment "DTM" in line 0 starting at char 0 and ending at char 25`, () => {
             const segmentInfo = new EdifactSegmentInfo(
-                EdifactUnaInfo.default,
                 0,
                 0,
                 0,
