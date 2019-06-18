@@ -1,5 +1,9 @@
 # [Change Log]
 
+## [Unreleased]
+### Removed
+ * Travis / AppVeyor integration to reduce complexity (all platforms are still covered by Azure DevOps)
+
 ## [0.5.1] - 2018-12-12
 ### Fixed
  * Fixed formatting bug when segment terminator is preceded by escaped release character (related to fix in version 0.5.0)
