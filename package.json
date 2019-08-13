@@ -23,7 +23,7 @@
     },
     "license": "SEE LICENSE IN LICENSE.txt",
     "engines": {
-        "vscode": "^1.11.0"
+        "vscode": "^1.29.0"
     },
     "categories": [
         "Programming Languages",
@@ -56,19 +56,22 @@
         ]
     },
     "devDependencies": {
-        "typescript": "^2.0.3",
-        "tslint": "^5.8.0",
-        "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
-        "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^10.12.21",
+        "@types/vscode": "^1.29.0",
+        "glob": "^7.1.4",
+        "mocha": "^6.1.4",
+        "typescript": "^3.3.1",
+        "tslint": "^5.12.1",
+        "vscode-test": "^1.0.0-next.0"
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "lint": "tslint -p ./",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+        "pretest": "npm run compile",
+        "test": "node ./out/test/runTest.js"
     }
 }
