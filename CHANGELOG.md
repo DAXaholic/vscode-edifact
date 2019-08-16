@@ -1,6 +1,9 @@
 # [Change Log]
 
-## [Unreleased]
+## [0.6.0] - 2019-08-16
+### Fixed
+ * Refactor extension to use the new packages [@types/vscode and vscode-test](https://code.visualstudio.com/updates/v1_36#_splitting-vscode-package-into-typesvscode-and-vscodetest)
+
 ### Removed
  * Travis / AppVeyor integration to reduce complexity (all platforms are still covered by Azure DevOps)
 
