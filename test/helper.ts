@@ -18,7 +18,7 @@ export default class Helper {
     }
 
     public static waitForExtensionActivation(timeout: number = 500) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             const start = Date.now();
             const scheduledCheck = () => {
                 if (this.isExtensionActivated()) {
