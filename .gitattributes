@@ -1,1 +1,2 @@
 test/*.edi text eol=lf
+test/*_crlf_*.edi eol=crlf
