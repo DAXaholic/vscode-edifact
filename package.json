@@ -53,7 +53,21 @@
                 "scopeName": "text.plain.edifact",
                 "path": "./syntaxes/edifact.tmLanguage"
             }
-        ]
+        ],
+        "commands": [
+            {
+                "command": "edifact.putAllSegmentsToSingleLine",
+                "title": "Put EDIFACT Segments to Single Line"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "edifact.putAllSegmentsToSingleLine",
+                    "when": "editorLangId == edifact"
+                }
+            ]
+        }
     },
     "devDependencies": {
         "@types/glob": "^7.1.3",

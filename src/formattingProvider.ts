@@ -1,5 +1,5 @@
 import * as vsc from "vscode";
-import EdifactFormatter from "./edifactFormatter";
+import { putEachSegmentInNewLine } from "./edifactDocumentTransformations";
 import { getRangeOverWholeDocument } from "./rangeUtils";
 
 export class EdifactFormattingEditProvider implements vsc.DocumentFormattingEditProvider {
@@ -8,7 +8,7 @@ export class EdifactFormattingEditProvider implements vsc.DocumentFormattingEdit
                                           token: vsc.CancellationToken) {
 
         const text = document.getText();
-        const formattedText = EdifactFormatter.format(text);
+        const formattedText = putEachSegmentInNewLine(text);
         const textEdit = new vsc.TextEdit(
             getRangeOverWholeDocument(document),
             formattedText);

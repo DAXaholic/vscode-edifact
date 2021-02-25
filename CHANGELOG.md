@@ -1,5 +1,9 @@
 # [Change Log]
 
+## [X.X.X] - XXXX-XX-XX
+### Added
+ * Command to put all EDIFACT segments in a single line [#21](https://github.com/DAXaholic/vscode-edifact/issues/21)
+
 ## [0.6.0] - 2019-08-16
 ### Fixed
  * Refactor extension to use the new packages [@types/vscode and vscode-test](https://code.visualstudio.com/updates/v1_36#_splitting-vscode-package-into-typesvscode-and-vscodetest)
@@ -29,7 +33,7 @@
 
 ## [0.2.0] - 2017-12-08
 ### Added
- * Allow collapsing messages 
+ * Allow collapsing messages
 
 ## [0.1.0] - 2017-09-22
 ### Added
@@ -55,7 +59,7 @@
  * Fixed regression in test suite due to [new format command](https://code.visualstudio.com/updates/v1_7#_new-commands)
 
 ## [0.0.2] - 2016-09-15
-### Added 
+### Added
  * Included link to GitHub repo in Marketplace page
 
 ### Fixed

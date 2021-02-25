@@ -167,6 +167,36 @@ suite("Complex Command Tests", () => {
         });
     });
 
+    suite("Put segments in single line of formatted EDIFACT file with ", () => {
+        test("LF line ending", () => {
+            const singleLineText = Helper.readTestFileSync(
+                "sample_lf_line_ending_single_line.edi");
+            return Helper
+                .openTestFileAndPutSegmentsInSingleLine(
+                    "sample_lf_line_ending_formatted.edi")
+                .then((editorText) => {
+                    assert.strictEqual(
+                        editorText,
+                        singleLineText,
+                        "Editor text does not match single line EDIFACT file");
+                });
+        });
+
+        test("CRLF line ending", () => {
+            const singleLineText = Helper.readTestFileSync(
+                "sample_crlf_line_ending_single_line.edi");
+            return Helper
+                .openTestFileAndPutSegmentsInSingleLine(
+                    "sample_crlf_line_ending_formatted.edi")
+                .then((editorText) => {
+                    assert.strictEqual(
+                        editorText,
+                        singleLineText,
+                        "Editor text does not match single line EDIFACT file");
+                });
+        });
+    });
+
     suite("Auto. detect EDIFACT language on file ", () => {
         test("without UNA segment", () => {
             return Helper

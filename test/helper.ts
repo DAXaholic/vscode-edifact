@@ -50,6 +50,14 @@ export default class Helper {
             .then(() => this.getActiveDocumentTextWithUnixLineEnding());
     }
 
+    public static openTestFileAndPutSegmentsInSingleLine(fileName: string) {
+        return this
+            .openTestFile(fileName)
+            .then(() => this.waitForExtensionActivation())
+            .then(() => vscode.commands.executeCommand("edifact.putAllSegmentsToSingleLine"))
+            .then(() => this.getActiveDocumentTextWithUnixLineEnding());
+    }
+
     public static openTestFile(fileName: string) {
         const resolvedPath = Helper.resolveTestFilePath(fileName);
         return vscode
