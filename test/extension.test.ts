@@ -130,7 +130,7 @@ suite("Complex Command Tests", () => {
             const formattedText = Helper.readTestFileSync(
                 "sample_std_seg_delimiter_formatted.edi");
             return Helper
-                .openAndFormatTestFile("sample_std_seg_delimiter_single_line.edi")
+                .openTestFileAndFormat("sample_std_seg_delimiter_single_line.edi")
                 .then((editorText) => {
                     assert.strictEqual(
                         editorText,
@@ -143,7 +143,7 @@ suite("Complex Command Tests", () => {
             const formattedText = Helper.readTestFileSync(
                 "sample_hash_seg_delimiter_formatted.edi");
             return Helper
-                .openAndFormatTestFile("sample_hash_seg_delimiter_single_line.edi")
+                .openTestFileAndFormat("sample_hash_seg_delimiter_single_line.edi")
                 .then((editorText) => {
                     assert.strictEqual(
                         editorText,
@@ -156,7 +156,7 @@ suite("Complex Command Tests", () => {
             const formattedText = Helper.readTestFileSync(
                 "sample_esc_release_char_before_seg_delimiter_formatted.edi");
             return Helper
-                .openAndFormatTestFile(
+                .openTestFileAndFormat(
                     "sample_esc_release_char_before_seg_delimiter_single_line.edi")
                 .then((editorText) => {
                     assert.strictEqual(

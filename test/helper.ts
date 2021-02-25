@@ -3,6 +3,13 @@ import * as path from "path";
 import * as vscode from "vscode";
 
 export default class Helper {
+    private static getActiveDocumentTextWithUnixLineEnding() {
+        const editor = vscode.window.activeTextEditor;
+        const txtEditor = editor ? editor.document.getText() : "";
+        const txtEditorUnixEol = txtEditor.replace(/\r?\n/g, "\n");
+        return txtEditorUnixEol;
+    }
+
     public static resolveTestFilePath(fileName: string) {
         return path.join(path.resolve(__dirname, "..", "..", "test"), fileName);
     }
@@ -35,17 +42,12 @@ export default class Helper {
         });
     }
 
-    public static openAndFormatTestFile(fileName: string) {
+    public static openTestFileAndFormat(fileName: string) {
         return this
             .openTestFile(fileName)
             .then(() => this.waitForExtensionActivation())
             .then(() => vscode.commands.executeCommand("editor.action.formatDocument"))
-            .then(() => {
-                const editor = vscode.window.activeTextEditor;
-                const txtEditor = editor ? editor.document.getText() : "";
-                const txtEditorUnixEol = txtEditor.replace(/\r?\n/g, "\n");
-                return txtEditorUnixEol;
-            });
+            .then(() => this.getActiveDocumentTextWithUnixLineEnding());
     }
 
     public static openTestFile(fileName: string) {
