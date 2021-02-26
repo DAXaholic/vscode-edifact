@@ -24,7 +24,7 @@ export default class Helper {
         return extension && extension.isActive;
     }
 
-    public static waitForExtensionActivation(timeout: number = 500) {
+    public static waitForExtensionActivation(timeout: number = 2000) {
         return new Promise<void>((resolve, reject) => {
             const start = Date.now();
             const scheduledCheck = () => {
