@@ -1,5 +1,9 @@
 # [Change Log]
 
+## [X.X.X] - XXXX-XX-XX
+### Added
+ * Add support for [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust)
+
 ## [0.7.0] - 2021-02-26
 ### Added
  * Command to put all EDIFACT segments in a single line [#21](https://github.com/DAXaholic/vscode-edifact/issues/21)

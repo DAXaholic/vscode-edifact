@@ -29,6 +29,11 @@
         "Programming Languages",
         "Formatters"
     ],
+    "capabilities": {
+        "untrustedWorkspaces": {
+            "supported": true
+        }
+    },
     "activationEvents": [
         "onLanguage:edifact"
     ],
