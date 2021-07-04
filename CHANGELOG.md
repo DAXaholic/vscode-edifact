@@ -1,6 +1,6 @@
 # [Change Log]
 
-## [X.X.X] - XXXX-XX-XX
+## [0.8.0] - 2021-07-04
 ### Added
  * Add support for [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust)
 
