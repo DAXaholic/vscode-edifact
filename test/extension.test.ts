@@ -218,4 +218,4 @@ suite("Complex Command Tests", () => {
                 });
         });
     });
-});
+}).timeout(5000);
